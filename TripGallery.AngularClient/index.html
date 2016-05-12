@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Trip Gallery</title>
+
+    <!-- CSS -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+</head>
+
+
+
+    <body ng-app="tripGallery" ng-controller="mainController as vm">
+     
+    
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div><img src="angularlogo.png" class="headerLogo" /></div>
+                <div class="navbar-header">
+                    <a href="#/trips/" class="navbar-brand">Trips</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href=""
+                               ng-if="!vm.mgr.expired"
+                               ng-bind-template="Logout ({{vm.mgr.profile.given_name}} {{vm.mgr.profile.family_name}})"
+                               ng-click="vm.logOutOfIdSrv()"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container body-content">
+            <!-- ngRoute view -->
+            <div ng-view></div>
+
+            <hr />
+            <footer>
+                <p>&copy; My Trip Gallery</p>
+            </footer>
+        </div>
+
+        <!-- Angular & app script  -->
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/angular-resource.js"></script>
+        <script src="Scripts/angular-route.js"></script>
+        <script src="app/app.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+
+        <!-- Services -->
+        <script src="common/common.services.js"></script>
+        <script src="common/tripResource.js"></script>
+        <script src="common/tripForCreationResource.js"></script>
+        <script src="common/pictureResource.js"></script>
+        <script src="common/pictureForCreationResource.js"></script>
+
+        <!-- Controllers -->
+        <script src="app/trips/tripIndexController.js"></script>
+        <script src="app/trips/tripCreateController.js"></script>
+        <script src="app/trips/tripAlbumController.js"></script>
+        <script src="app/pictures/pictureIndexController.js"></script>
+        <script src="app/pictures/pictureCreateController.js"></script>
+        <script src="app/mainController.js"></script>
+
+        <!-- oidc-token-manager -->
+        <script src="Scripts/oidc-token-manager.js"></script>
+    </body>
+
+</html>
